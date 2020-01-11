@@ -32,4 +32,10 @@ export class AppComponent implements OnInit {
   isAdmin() {
     return this._authService.authContext && this._authService.authContext.isAdmin;
   }
+  isUser() {
+    return this._authService.authContext && this._authService.authContext.isUser;
+  }
+  isShopUser(){
+    return this._authService.authContext && this._authService.authContext.isShopUser;
+  }
 }

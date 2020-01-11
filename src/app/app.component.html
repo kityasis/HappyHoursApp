@@ -16,7 +16,7 @@
         <mat-toolbar color="warn">              
               <span class="navbar-fill">
                 <button *ngIf="isLoggedIn" mat-button routerLink="/">Home</button>
-                  <!-- <button *ngIf="isLoggedIn" mat-button routerLink="/shops">My Shops</button> -->
+                  <button *ngIf="isLoggedIn && isShopUser()" mat-button routerLink="/shops">My Shops</button>
                   <button *ngIf="isLoggedIn" mat-button routerLink="/user-profile">Profile</button>
                   <button *ngIf="isAdmin()" mat-button routerLink="/admin">Manage Shops</button>
               </span>
