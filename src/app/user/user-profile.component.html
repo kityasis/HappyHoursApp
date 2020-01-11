@@ -1,0 +1,25 @@
+<mat-card class="example-card">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>{{userProfile.firstName}} {{userProfile.lastName}}</mat-card-title>
+      <mat-card-subtitle>{{userProfile.email}}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+    <input id="fileInput" type="file" class="ng-hide">
+    <button mat-button id="uploadButton" class="md-raised md-primary" aria-label="attach_file"></button>
+    <mat-card-content *ngIf="userProfile">
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="First Name" [(ngModel)]="userProfile.firstName" [readonly]="isEdit">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Last Name" [(ngModel)]="userProfile.lastName" [readonly]="isEdit"> 
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="E-Mail" [(ngModel)]="userProfile.email" [readonly]="isEdit">
+        </mat-form-field>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button (click)="edit()">{{isEdit ?'Edit':'Update'}}</button>
+      <button mat-button (click)="cancel()">Cancel</button>
+    </mat-card-actions>
+  </mat-card>
