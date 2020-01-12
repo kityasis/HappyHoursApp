@@ -7,18 +7,19 @@ import { Shop } from '../model/shop';
 
 @Component({
   selector: "app-shops",
-  templateUrl: "shop-list.component.html"
+  templateUrl: "shop-list.component.html",
+  styleUrls: ['shop-list.component.scss']
 })
 export class ShopListComponent implements OnInit {
-  displayedColumns = ["name"];
+  displayedColumns = ["name","type","email","contactNumber","shopImages","actions"];
   error: string;
   dataSource = new MatTableDataSource();
   Shops: Shop[];
 
-  constructor(private _ShopService: ShopService) {}
+  constructor(private _shopService: ShopService) {}
 
   ngOnInit() {
-    this._ShopService.getShops().subscribe(Shops => {
+    this._shopService.getShops().subscribe(Shops => {
       this.Shops = Shops;
       this.dataSource.data = Shops;
     }, error => Utils.formatError(error));
