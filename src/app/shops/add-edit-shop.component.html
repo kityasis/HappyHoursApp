@@ -1,0 +1,107 @@
+<form class="example-form" style="max-width:80%;">
+  <h1 mat-dialog-title>Add Shop</h1>
+
+  <table class="example-full-width" cellspacing="0">
+    <tr>
+      <td>
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Name" [(ngModel)]="shop.name" required name="name">
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="E-mail" [(ngModel)]="shop.email" required name="E-mail">
+        </mat-form-field>
+      </td>     
+    </tr>
+  </table>
+  <table class="example-full-width" cellspacing="0">
+    <tr>     
+      <td>
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Contact Number" [(ngModel)]="shop.contactNumber" required > 
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Seat Strength" [(ngModel)]="shop.seatStrength" required>
+        </mat-form-field>
+      </td>
+    </tr>
+  </table>
+
+  <table class="example-full-width" cellspacing="0">
+    <tr>
+      <td>
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Country">
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="City">
+        </mat-form-field>
+      </td>     
+    </tr>
+  </table>
+  <table class="example-full-width" cellspacing="0">
+    <tr>      
+      <td>
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="State">
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Currency Code" [(ngModel)]="shop.currencyCode" required>
+        </mat-form-field>
+      </td>
+    </tr>
+  </table>
+  <table class="example-full-width" cellspacing="0">
+    <tr>
+      <td>
+        <mat-form-field class="example-full-width">
+          <input matInput #postalCode maxlength="5" placeholder="Postal Code" [(ngModel)]="shop.pincode" required>
+        </mat-form-field>
+      </td>
+      <td>        
+      </td>      
+    </tr>
+  </table>
+  <table class="example-full-width" cellspacing="0">
+    <tr>     
+      <td>
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="logo" [(ngModel)]="shop.logo" required>
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Images" [(ngModel)]="shop.shopImages" required>
+        </mat-form-field>
+      </td>      
+    </tr>
+  </table>
+
+  <p>
+    <mat-form-field class="example-full-width">
+      <textarea matInput placeholder="Street" [(ngModel)]="shop.street"></textarea>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <textarea matInput placeholder="Locality" [(ngModel)]="shop.locality"></textarea>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <textarea matInput placeholder="Landmark" [(ngModel)]="shop.landmark"></textarea>
+    </mat-form-field>
+  </p>
+  <div layout="row">
+    <button mat-raised-button routerLink="/shops">Cancel</button>
+    <button mat-raised-button color="primary"  >Save</button>
+  </div>
+</form>
+
+
+<!-- Copyright 2019 Google LLC. All Rights Reserved.
+    Use of this source code is governed by an MIT-style license that
+    can be found in the LICENSE file at http://angular.io/license -->

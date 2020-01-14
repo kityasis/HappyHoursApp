@@ -8,12 +8,14 @@ import { ShopListComponent } from './shops/shop-list.component';
 import { ShopComponent } from './shops/shop.component';
 import { UnauthorizedComponent } from './home/unauthorized.component';
 import { UserProfileComponent } from './user/user-profile.component';
+import { AddEditShopComponent } from './shops/add-edit-shop.component';
 
 
 const routes: Routes = [
     { path: '', component: HomeComponent },
     { path: 'contact-us', component: ContactUsComponent },
-    { path: 'shops', component: ShopListComponent},
+    { path: 'shops', component: ShopListComponent},    
+    { path: 'add-edit-shop', component: AddEditShopComponent},
     { path: 'shop/:shopId', component: ShopComponent },
     { path: 'signin-callback', component: SigninRedirectCallbackComponent },
     { path: 'signout-callback', component: SignoutRedirectCallbackComponent },

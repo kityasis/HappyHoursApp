@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { MatTableDataSource } from '@angular/material';
+import { MatTableDataSource,MatDialog } from '@angular/material';
 
 import { ShopService } from '../core/shop.service';
 import { Utils } from '../core/utils';
 import { Shop } from '../model/shop';
 
 @Component({
-  selector: "app-shops",
-  templateUrl: "shop-list.component.html",
+  selector: 'app-shops',
+  templateUrl: 'shop-list.component.html',
   styleUrls: ['shop-list.component.scss']
 })
 export class ShopListComponent implements OnInit {
@@ -16,7 +16,10 @@ export class ShopListComponent implements OnInit {
   dataSource = new MatTableDataSource();
   Shops: Shop[];
 
-  constructor(private _shopService: ShopService) {}
+  constructor(
+    private _shopService: ShopService,
+    public dialog: MatDialog
+  ) { }
 
   ngOnInit() {
     this._shopService.getShops().subscribe(Shops => {
@@ -24,4 +27,7 @@ export class ShopListComponent implements OnInit {
       this.dataSource.data = Shops;
     }, error => Utils.formatError(error));
   }
+
+ 
 }
+

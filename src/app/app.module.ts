@@ -14,11 +14,11 @@ import { ContactUsComponent } from './home/contact-us.component';
 import { HomeComponent } from './home/home.component';
 import { SigninRedirectCallbackComponent } from './home/signin-redirect-callback.component';
 import { SignoutRedirectCallbackComponent } from './home/signout-redirect-callback.component';
-import { AddEditMilestoneDialogComponent } from './shops/add-edit-milestone-dialog.component';
 import { ShopListComponent } from './shops/shop-list.component';
 import { ShopComponent } from './shops/shop.component';
 import { UnauthorizedComponent } from './home/unauthorized.component';
 import { UserProfileComponent } from './user/user-profile.component';
+import { AddEditShopComponent } from './shops/add-edit-shop.component';
 
 @NgModule({
   declarations: [
@@ -26,8 +26,8 @@ import { UserProfileComponent } from './user/user-profile.component';
     HomeComponent,
     ContactUsComponent,
     ShopListComponent,
-    ShopComponent,   
-    AddEditMilestoneDialogComponent,
+    AddEditShopComponent,
+    ShopComponent,
     SigninRedirectCallbackComponent,
     SignoutRedirectCallbackComponent,
     UnauthorizedComponent,
@@ -58,7 +58,7 @@ import { UserProfileComponent } from './user/user-profile.component';
   ],
   bootstrap: [AppComponent],
   entryComponents:[
-    AddEditMilestoneDialogComponent
+   
   ]
 })
 export class AppModule { }
