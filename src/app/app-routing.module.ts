@@ -15,7 +15,7 @@ const routes: Routes = [
     { path: '', component: HomeComponent },
     { path: 'contact-us', component: ContactUsComponent },
     { path: 'shops', component: ShopListComponent},    
-    { path: 'add-edit-shop', component: AddEditShopComponent},
+    { path: 'add-edit-shop/:shopId', component: AddEditShopComponent},
     { path: 'shop/:shopId', component: ShopComponent },
     { path: 'signin-callback', component: SigninRedirectCallbackComponent },
     { path: 'signout-callback', component: SignoutRedirectCallbackComponent },

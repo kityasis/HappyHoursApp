@@ -5,10 +5,10 @@
     </nav> 
     <div style="text-align: center; font-size: 134%;">Welcome to Happy Hours Network</div><br><br>
     <div class="mat-display-2" style="text-align: center;">
-        <button title="I'm a user" mat-raised-button color="warn" (click)="login()">I'm a user</button>
+        <button title="I'm a user" mat-raised-button color="warn" (click)="login(0)">I'm a user</button>
     </div>
     <div class="mat-display-2" style="text-align: center;">
-        <button title="I'm a Bar/Resturant Owner" mat-raised-button color="warn" (click)="login()">I'm a Bar/Resturant Owner</button>   
+        <button title="I'm a Bar/Resturant Owner" mat-raised-button color="warn" (click)="login(1)">I'm a Bar/Resturant Owner</button>   
     </div>  
 </div>
 <div name="content" *ngIf="isLoggedIn">

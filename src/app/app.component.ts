@@ -21,8 +21,8 @@ export class AppComponent implements OnInit {
     })
   }
 
-  login() {
-    this._authService.login();
+  login(userType:number) {
+    this._authService.login(userType);
   }
 
   logout() {

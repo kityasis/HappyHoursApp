@@ -48,8 +48,11 @@ export class AuthService {
 
   }
 
-  login() {
-    return this._userManager.signinRedirect();
+  login(userType:number) {
+    return this._userManager.signinRedirect(
+      {
+        extraQueryParams:{userType:userType}
+      });
   }
 
   isLoggedIn(): Promise<boolean> {
