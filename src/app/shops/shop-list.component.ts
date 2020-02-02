@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource,MatDialog } from '@angular/material';
+import { DeleteDialogComponent } from './delete-dialog.component';
 
 import { ShopService } from '../core/shop.service';
 import { Utils } from '../core/utils';
@@ -15,6 +16,7 @@ export class ShopListComponent implements OnInit {
   error: string;
   dataSource = new MatTableDataSource();
   Shops: Shop[];
+  shop : Shop;
 
   constructor(
     private _shopService: ShopService,
@@ -28,6 +30,18 @@ export class ShopListComponent implements OnInit {
     }, error => Utils.formatError(error));
   }
 
- 
+  deleteShop(shop: Shop) {
+     const dialogRef = this.dialog.open(DeleteDialogComponent, {
+       width: '348px',
+       data: { entityName: 'shop', message: `Are you sure you want to delete Shop ${shop.name}?` }
+     });
+     dialogRef.afterClosed().subscribe(result => {
+       if (result !== undefined) {
+         this._shopService.deleteShop(shop).subscribe(() => {
+           this.ngOnInit();
+         }, error => this.error = Utils.formatError(error));
+       }
+     });
+   }
 }
 

@@ -19,22 +19,28 @@ export class AddEditShopComponent implements OnInit {
         private _router: Router,
         private _route: ActivatedRoute) { }
 
-    ngOnInit() {
-        //this.shop=new Shop();
-        this.shopId = parseInt(this._route.snapshot.params.shopId);
+    ngOnInit() {       
+        let parmShopId=this._route.snapshot.params.shopId;
+        if(parmShopId !== undefined) {
+            this.shopId = parseInt(parmShopId);
+            this._shopService.getShop(this.shopId).subscribe(s => {
+                this.shop = s;
+            }, error => (this.error = Utils.formatError(error)));
+        }
+        else{
+            this.shop = new Shop();
+        }        
+     }    
 
-        this._shopService.getShop(this.shopId).subscribe(s => {
-          this.shop = s;        
-        }, error => (this.error = Utils.formatError(error)));
-     }
-
-    
-
-    addShop(shop) {
+    addShop(shop:Shop) {      
         this._shopService.addShop(shop).subscribe(shop => {
             this._router.navigate(['/shops']); 
-          }, error => this.error = Utils.formatError(error));
-        // if (this.data.name) { this._dialogRef.close(this.data.name); }
-        // else { this.error = "Please enter a name for the shop." };
+          }, error => this.error = Utils.formatError(error));       
+    }
+    editShop(shop:Shop) {
+        if(shop.id)
+        this._shopService.updateShop(shop).subscribe(shop => {
+            this._router.navigate(['/shops']); 
+          }, error => this.error = Utils.formatError(error));       
     }
 }

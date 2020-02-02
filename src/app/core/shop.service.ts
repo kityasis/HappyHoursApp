@@ -34,9 +34,12 @@ export class ShopService {
     addShop(Shop: Shop): Observable<Shop> {
         return this._httpClient.post<Shop>(Constants.apiRoot + 'Shops', Shop);
     }
+    updateShop(shop: Shop) {
+        return this._httpClient.put(`${Constants.apiRoot}Shops/${shop.id}`, shop);
+    }
 
-    deleteShop(Shop: Shop): Observable<object> {
-        return this._httpClient.delete(Constants.apiRoot + 'Shops/' + Shop.id);
+    deleteShop(shop: Shop): Observable<object> {
+        return this._httpClient.delete(Constants.apiRoot + 'Shops/' + shop.id);
     }
 
     addUserPermission(userPermission: UserPermission) {

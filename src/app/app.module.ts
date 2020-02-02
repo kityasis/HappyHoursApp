@@ -19,6 +19,7 @@ import { ShopComponent } from './shops/shop.component';
 import { UnauthorizedComponent } from './home/unauthorized.component';
 import { UserProfileComponent } from './user/user-profile.component';
 import { AddEditShopComponent } from './shops/add-edit-shop.component';
+import { ShopModule } from './shops/shop.module';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,7 @@ import { AddEditShopComponent } from './shops/add-edit-shop.component';
     HomeComponent,
     ContactUsComponent,
     ShopListComponent,
-    AddEditShopComponent,
+    //AddEditShopComponent,
     ShopComponent,
     SigninRedirectCallbackComponent,
     SignoutRedirectCallbackComponent,
@@ -46,7 +47,8 @@ import { AddEditShopComponent } from './shops/add-edit-shop.component';
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
-    AdminModule,   
+    AdminModule,
+    ShopModule,   
     CoreModule,
     AppRoutingModule,
     AgmCoreModule.forRoot({
