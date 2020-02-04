@@ -14,21 +14,15 @@ import { ContactUsComponent } from './home/contact-us.component';
 import { HomeComponent } from './home/home.component';
 import { SigninRedirectCallbackComponent } from './home/signin-redirect-callback.component';
 import { SignoutRedirectCallbackComponent } from './home/signout-redirect-callback.component';
-import { ShopListComponent } from './shops/shop-list.component';
-import { ShopComponent } from './shops/shop.component';
 import { UnauthorizedComponent } from './home/unauthorized.component';
 import { UserProfileComponent } from './user/user-profile.component';
-import { AddEditShopComponent } from './shops/add-edit-shop.component';
-import { ShopModule } from './shops/shop.module';
+import { ShopModule } from './shop/shop.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     ContactUsComponent,
-    ShopListComponent,
-    //AddEditShopComponent,
-    ShopComponent,
     SigninRedirectCallbackComponent,
     SignoutRedirectCallbackComponent,
     UnauthorizedComponent,

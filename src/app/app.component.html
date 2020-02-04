@@ -19,6 +19,10 @@
                   <button *ngIf="isLoggedIn && isShopUser()" mat-button routerLink="/shops">My Shops</button>
                   <button *ngIf="isLoggedIn" mat-button routerLink="/user-profile">Profile</button>
                   <button *ngIf="isAdmin()" mat-button routerLink="/admin">Manage Shops</button>
+                  <button *ngIf="isLoggedIn && isShopUser()" mat-button routerLink="/happy-hours">Happy Hours</button>
+                  <button *ngIf="isLoggedIn && isShopUser()" mat-button routerLink="/items">Item</button>
+
+                  
               </span>
               <span>
                   <button *ngIf="!isLoggedIn" mat-button (click)="login()">Login</button>

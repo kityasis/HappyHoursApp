@@ -6,6 +6,7 @@ import { AccountService } from './account.service';
 import { ShopService } from './shop.service';
 import { AdminRouteGuard } from './admin-route-guard';
 import { UserProfileService } from '../core/user-profile.service';
+import { ItemService } from './item.service';
 
 @NgModule({
     imports: [],
@@ -13,11 +14,12 @@ import { UserProfileService } from '../core/user-profile.service';
     declarations: [],
     providers: [
         AuthService,
-        AccountService,
-        ShopService, 
+        AccountService,        
         UserProfileService,     
         AdminRouteGuard,
-        { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true }
+        { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true },
+        ShopService,
+        ItemService, 
     ],
 })
 export class CoreModule { }
