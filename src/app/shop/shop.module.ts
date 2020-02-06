@@ -16,6 +16,7 @@ import { AddEditShopComponent } from './add-edit-shop.component';
 import { DeleteDialogComponent } from './delete-dialog.component';
 import { CoreModule } from '../core/core.module';
 import { ShopRoutingModule } from './shop-routing.module';
+import { AddEditShopCanDeactivateGuardService } from './add-edit-can-deactivate-guard.service';
 
 import { ItemListComponent } from './item/item-list.component';
 
@@ -40,7 +41,7 @@ import { ItemListComponent } from './item/item-list.component';
     DeleteDialogComponent,
     ItemListComponent   
   ],
-  providers: [],
+  providers: [AddEditShopCanDeactivateGuardService],
   entryComponents: [
     DeleteDialogComponent   
   ]

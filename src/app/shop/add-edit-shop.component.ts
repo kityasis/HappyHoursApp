@@ -1,9 +1,10 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, ViewChild } from '@angular/core';
 import { Shop } from '../model/shop';
 import { ShopService } from '../core/shop.service';
 import { Utils } from '../core/utils';
 import {Router} from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
+import { NgForm } from '@angular/forms';
 
 @Component({
     selector: 'app-add-edit-shop',
@@ -12,8 +13,10 @@ import { ActivatedRoute } from '@angular/router';
 })
 
 export class AddEditShopComponent implements OnInit {
-    shopId: number;
-    error: string;
+    @ViewChild('shopForm', {static: true})
+    public addEditShopForm : NgForm;
+    shopId : number;
+    error : string;
     shop : Shop;
     constructor(private _shopService: ShopService,
         private _router: Router,
