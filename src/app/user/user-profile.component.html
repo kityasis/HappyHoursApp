@@ -19,7 +19,7 @@
         </mat-form-field>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-button (click)="edit()">{{isEdit ?'Edit':'Update'}}</button>
+      <button mat-button (click)="isEdit ? edit(): Update(userProfile)">{{isEdit ?'Edit':'Update'}}</button>
       <button mat-button (click)="cancel()">Cancel</button>
     </mat-card-actions>
   </mat-card>
