@@ -28,16 +28,17 @@ export class UserProfileComponent implements OnInit {
         });
         this.isEdit = true;       
       }
-      // updateUserProfile(){
-      //   this._userProfileService.getUserProfile().subscribe(up => {
-      //     this.userProfile = up;
-      //   });
-      // }
+      updateUserProfile(userProfile:UserProfile):void{
+        this._userProfileService.updateUserProfile(this.userProfile).subscribe(()=>this.userProfile);
+      }
        edit(){
         this.isEdit = false;
        }
        cancel(){
         this.isEdit = true;
+       }
+       Update(userProfile){
+         this.updateUserProfile(this.userProfile);
        }
        uploadFile(file){
         // const formData = new FormData();  
