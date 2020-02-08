@@ -1,9 +1,6 @@
 <div class="error-text">{{error}}</div>
-
 <div class="table-container mat-elevation-z8">
-
     <mat-table [dataSource]="dataSource">
-
         <!-- shop Name Column -->
         <ng-container matColumnDef="name">
             <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
@@ -29,13 +26,12 @@
                 </div>
             </mat-cell>
         </ng-container>
-
         <!-- Actions Column -->
         <ng-container matColumnDef="actions">
             <mat-header-cell *matHeaderCellDef></mat-header-cell>
             <mat-cell *matCellDef="let shop" [style.flex]="'0 0 200px'">
                 <div class="action-button-wrapper">
-                    <button title="Manage Permissions" mat-raised-button color="primary" class="list-action" routerLink="manage-permissions/{{shop.id}}">
+                    <button title="Manage Permissions" mat-raised-button color="primary" class="list-action" (click)="permission(shop)">
                         <i class="material-icons">lock</i>
                     </button>
                     <button title="Delete shop" mat-raised-button color="warn" class="list-action" (click)="deleteShop(shop)">
@@ -44,11 +40,7 @@
                 </div>
             </mat-cell>
         </ng-container>
-
         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
         <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-    </mat-table>
-    <button title="Add shop" mat-raised-button class="add-button mat-fab" color="primary" (click)="addShop()">
-        <i class="material-icons">add</i>
-    </button>
+    </mat-table>   
 </div>

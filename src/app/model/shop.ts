@@ -24,4 +24,5 @@ export class Shop {
     currencyCode : string;
     logo : string;
     shopImages : string;
+    permission :string;
 }

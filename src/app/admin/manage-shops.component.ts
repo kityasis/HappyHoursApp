@@ -4,7 +4,7 @@ import { MatDialog, MatTableDataSource } from '@angular/material';
 import { ShopService } from '../core/shop.service';
 import { Utils } from '../core/utils';
 import { Shop } from '../model/shop';
-import { AddShopDialogComponent } from './add-shop-dialog.component';
+import { ShopPermissionDialogComponent } from './shop-permissions-dialog.component';
 import { DeleteDialogComponent } from './delete-dialog.component';
 
 @Component({
@@ -35,24 +35,6 @@ export class ManageShopsComponent implements OnInit {
     filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
     this.dataSource.filter = filterValue;
   }
-
-  addShop() {
-    const dialogRef = this.dialog.open(AddShopDialogComponent, {
-      width: '348px',
-      data: { name: '' }
-    });
-    dialogRef.afterClosed().subscribe(result => {
-      if (result !== undefined) {
-        const newProj = new Shop();
-        newProj.name = result;
-        this._shopservice.addShop(newProj).subscribe(shop => {
-          this.shops.push(shop);
-          this.dataSource.data = this.shops;
-        }, error => this.error = Utils.formatError(error));
-      }
-    });
-  }
-
   deleteShop(Shop: Shop) {
     const dialogRef = this.dialog.open(DeleteDialogComponent, {
       width: '348px',
@@ -64,6 +46,18 @@ export class ManageShopsComponent implements OnInit {
           this.shops.splice(this.shops.indexOf(Shop), 1);
           this.dataSource.data = this.shops;
         }, error => this.error = Utils.formatError(error));
+      }
+    });
+  }
+  permission(Shop:Shop) {
+    var perm = Shop.permission;
+    const dialogRef = this.dialog.open(ShopPermissionDialogComponent, {
+      width: '348px',
+      data: { permission: perm, id: Shop.id}
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result !== undefined) {
+        this.ngOnInit();
       }
     });
   }
