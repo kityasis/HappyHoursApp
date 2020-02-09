@@ -73,7 +73,7 @@ export class ShopService {
     updateMilestone(milestone: Milestone) {
         return this._httpClient.put(`${Constants.apiRoot}Shops/Milestones/${milestone.id}`, milestone);
     }
-    getShopPermission(ShopId: number): Observable<Shop> {
-        return this._httpClient.get<Shop>(Constants.apiRoot + 'Shops/' + ShopId + '/ShopPermission');
+    updateShopPermission(id:number,permission:string) {
+        return this._httpClient.put(`${Constants.apiRoot}Shops/ShopPermission?id=${id}&permission=${permission}`,null);
     }
 }

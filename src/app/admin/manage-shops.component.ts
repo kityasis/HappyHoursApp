@@ -13,7 +13,7 @@ import { DeleteDialogComponent } from './delete-dialog.component';
   styleUrls: ['manage-shops.component.scss']
 })
 export class ManageShopsComponent implements OnInit {
-  displayedColumns = ['name','email','locality', 'actions'];
+  displayedColumns = ['name','type','contact','email','locality','status', 'actions'];
   error: string;
   dataSource = new MatTableDataSource();
   shops: Shop[];
@@ -55,9 +55,13 @@ export class ManageShopsComponent implements OnInit {
       width: '348px',
       data: { permission: perm, id: Shop.id}
     });
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe(result => {     
       if (result !== undefined) {
-        this.ngOnInit();
+        this._shopservice.updateShopPermission(Shop.id,result).subscribe(() => {          
+          this._shopservice.getShops().subscribe(shops => {            
+            this.dataSource.data = shops;
+          }, error => this.error = Utils.formatError(error));
+        }, error => this.error = Utils.formatError(error));
       }
     });
   }

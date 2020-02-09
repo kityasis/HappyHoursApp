@@ -10,6 +10,22 @@
                 </div>
             </mat-cell>
         </ng-container>
+        <ng-container matColumnDef="type">
+            <mat-header-cell *matHeaderCellDef>Type</mat-header-cell>
+            <mat-cell *matCellDef="let shop" [style.flex]="'flex'">
+                <div class="shop-name">
+                    <strong>{{shop.type?'Resturant':'Bar'}}</strong>
+                </div>
+            </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="contact">
+            <mat-header-cell *matHeaderCellDef>Contact</mat-header-cell>
+            <mat-cell *matCellDef="let shop" [style.flex]="'flex'">
+                <div class="shop-name">
+                    <strong>{{shop.contactNumber}}</strong>
+                </div>
+            </mat-cell>
+        </ng-container>
         <ng-container matColumnDef="email">
             <mat-header-cell *matHeaderCellDef>E-Mail</mat-header-cell>
             <mat-cell *matCellDef="let shop" [style.flex]="'flex'">
@@ -23,6 +39,14 @@
             <mat-cell *matCellDef="let shop" [style.flex]="'flex'">
                 <div class="shop-name">
                     <strong>{{shop.locality}}</strong>
+                </div>
+            </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="status">
+            <mat-header-cell *matHeaderCellDef>Status</mat-header-cell>
+            <mat-cell *matCellDef="let shop" [style.flex]="'flex'">
+                <div class="shop-name">
+                    <strong>{{shop.permission==='Edit'?'Active':'InActive'}}</strong>
                 </div>
             </mat-cell>
         </ng-container>

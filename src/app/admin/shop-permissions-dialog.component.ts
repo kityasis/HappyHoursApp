@@ -13,7 +13,7 @@ import { Shop } from '../model/shop';
 export class ShopPermissionDialogComponent implements OnInit { 
   
   options = [{value: 'View', label: 'View' },{ value: 'Edit', label: 'Edit' }];
-
+  error:string;
   permission: string;
 
   constructor(  
@@ -21,13 +21,14 @@ export class ShopPermissionDialogComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any,
     private _shopService: ShopService
     ) { 
-     this.permission=data.permission;      
+     this.permission = data.permission;      
     }
 
   ngOnInit() {    
   }
   save() {
-    this._dialogRef.close();
+    if (this.data.permission) { this._dialogRef.close(this.data.permission); }
+        else { this.error = "Please select permission." };
   }
   cancel() {
     this._dialogRef.close();
