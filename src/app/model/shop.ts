@@ -10,8 +10,7 @@ import { UserPermission } from "./user-permission";
 export class Shop {
     id : number;
     name : string;
-    type : boolean;
-    date : Date;
+    type : boolean;    
     contactNumber : string;
     email : string;
     countryId : number;

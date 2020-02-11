@@ -8,13 +8,20 @@ import {
   MatSelectModule,
   MatTableModule,
   MatToolbarModule,
+  MatPaginatorModule,
+  MatSortModule
 } from '@angular/material';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, HAMMER_LOADER } from '@angular/platform-browser';
 import { AdminRoutingModule } from './admin-routing.module';
 import { DeleteDialogComponent } from './delete-dialog.component';
 import { ManageShopsComponent } from './manage-shops.component';
 import { ShopPermissionDialogComponent } from './shop-permissions-dialog.component';
 import { CoreModule } from '../core/core.module';
+import {HttpClientModule} from '@angular/common/http';
+import { ReactiveFormsModule} from '@angular/forms';
+import {MatNativeDateModule} from '@angular/material/core';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+
 
 
 @NgModule({
@@ -28,8 +35,14 @@ import { CoreModule } from '../core/core.module';
     MatTableModule,
     MatInputModule,
     MatSelectModule,
+    MatPaginatorModule,
+    MatSortModule, 
     AdminRoutingModule,
-    CoreModule
+    CoreModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
+    MatNativeDateModule,
+    ReactiveFormsModule,
   ],
   exports: [],
   declarations: [
@@ -37,10 +50,14 @@ import { CoreModule } from '../core/core.module';
     ShopPermissionDialogComponent,
     DeleteDialogComponent  
   ],
-  providers: [],
+  providers: [ManageShopsComponent,{
+    provide: HAMMER_LOADER,
+    useValue: () => new Promise(() => {})
+  }],
   entryComponents: [  
     DeleteDialogComponent,
-    ShopPermissionDialogComponent
+    ShopPermissionDialogComponent,
+    ManageShopsComponent
   ]
 })
 export class AdminModule {}

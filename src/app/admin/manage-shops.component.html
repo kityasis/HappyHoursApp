@@ -1,9 +1,17 @@
+<div class="serch-div">
+    <mat-form-field class="search-form-field" floatLable="never">
+        <input matInput [(ngModel)]="searchKey" placeholder="Search" autocomplete="off" (keyup)="applyFilter()">
+        <button title="Delete shop" mat-raised-button color="warn" class="list-action" (click)="deleteShop(shop)">
+            <i mat-button matSuffix mat-icon-button aria-label="Clear" *ngIf="searchKey" (click)="onSearchClear()">close</i>
+        </button>       
+    </mat-form-field>
+</div>
 <div class="error-text">{{error}}</div>
 <div class="table-container mat-elevation-z8">
-    <mat-table [dataSource]="dataSource">
+    <mat-table [dataSource]="dataSource" matSort>
         <!-- shop Name Column -->
         <ng-container matColumnDef="name">
-            <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Name</mat-header-cell>
             <mat-cell *matCellDef="let shop" [style.flex]="'flex'">
                 <div class="shop-name">
                     <strong>{{shop.name}}</strong>
@@ -11,7 +19,7 @@
             </mat-cell>
         </ng-container>
         <ng-container matColumnDef="type">
-            <mat-header-cell *matHeaderCellDef>Type</mat-header-cell>
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Type</mat-header-cell>
             <mat-cell *matCellDef="let shop" [style.flex]="'flex'">
                 <div class="shop-name">
                     <strong>{{shop.type?'Resturant':'Bar'}}</strong>
@@ -19,7 +27,7 @@
             </mat-cell>
         </ng-container>
         <ng-container matColumnDef="contact">
-            <mat-header-cell *matHeaderCellDef>Contact</mat-header-cell>
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Contact</mat-header-cell>
             <mat-cell *matCellDef="let shop" [style.flex]="'flex'">
                 <div class="shop-name">
                     <strong>{{shop.contactNumber}}</strong>
@@ -27,7 +35,7 @@
             </mat-cell>
         </ng-container>
         <ng-container matColumnDef="email">
-            <mat-header-cell *matHeaderCellDef>E-Mail</mat-header-cell>
+            <mat-header-cell *matHeaderCellDef mat-sort-header>E-Mail</mat-header-cell>
             <mat-cell *matCellDef="let shop" [style.flex]="'flex'">
                 <div class="shop-name">
                     <strong>{{shop.email}}</strong>
@@ -35,7 +43,7 @@
             </mat-cell>
         </ng-container>
         <ng-container matColumnDef="locality">
-            <mat-header-cell *matHeaderCellDef>Locality</mat-header-cell>
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Locality</mat-header-cell>
             <mat-cell *matCellDef="let shop" [style.flex]="'flex'">
                 <div class="shop-name">
                     <strong>{{shop.locality}}</strong>
@@ -43,7 +51,7 @@
             </mat-cell>
         </ng-container>
         <ng-container matColumnDef="status">
-            <mat-header-cell *matHeaderCellDef>Status</mat-header-cell>
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Status</mat-header-cell>
             <mat-cell *matCellDef="let shop" [style.flex]="'flex'">
                 <div class="shop-name">
                     <strong>{{shop.permission==='Edit'?'Active':'InActive'}}</strong>
@@ -66,5 +74,6 @@
         </ng-container>
         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
         <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-    </mat-table>   
+    </mat-table> 
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>  
 </div>

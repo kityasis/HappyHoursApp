@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog, MatTableDataSource } from '@angular/material';
+import {MatPaginator} from '@angular/material/paginator';
+import {MatSort} from '@angular/material/sort';
+
 
 import { ShopService } from '../core/shop.service';
 import { Utils } from '../core/utils';
@@ -17,6 +20,9 @@ export class ManageShopsComponent implements OnInit {
   error: string;
   dataSource = new MatTableDataSource();
   shops: Shop[];
+  searchKey:string;
+  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+  @ViewChild(MatSort, {static: true}) sort: MatSort;
 
   constructor(
     private _shopservice: ShopService,
@@ -28,13 +34,11 @@ export class ManageShopsComponent implements OnInit {
       this.shops = shops;
       this.dataSource.data = shops;
     }, error => this.error = Utils.formatError(error));
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
   }
 
-  applyFilter(filterValue: string) {
-    filterValue = filterValue.trim(); // Remove whitespace
-    filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
-    this.dataSource.filter = filterValue;
-  }
+  
   deleteShop(Shop: Shop) {
     const dialogRef = this.dialog.open(DeleteDialogComponent, {
       width: '348px',
@@ -65,5 +69,12 @@ export class ManageShopsComponent implements OnInit {
       }
     });
   }
-
+  onSearchClear(){
+    this.searchKey="";
+    this.applyFilter();
+  }
+ 
+  applyFilter() {
+    this.dataSource.filter = this.searchKey.trim().toLowerCase();;
+  }
 }
