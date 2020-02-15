@@ -16,7 +16,7 @@ import { SigninRedirectCallbackComponent } from './home/signin-redirect-callback
 import { SignoutRedirectCallbackComponent } from './home/signout-redirect-callback.component';
 import { UnauthorizedComponent } from './home/unauthorized.component';
 import { UserProfileComponent } from './user/user-profile.component';
-import { ShopModule } from './shop/shop.module';
+import { ShopModule } from './shopUser/shop.module';
 
 @NgModule({
   declarations: [

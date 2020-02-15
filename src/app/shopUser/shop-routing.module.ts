@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AddEditShopComponent } from './add-edit-shop.component';
-import { ShopListComponent } from './shop-list.component';
-import { AddEditShopCanDeactivateGuardService } from './add-edit-can-deactivate-guard.service';
+import { AddEditShopComponent } from './shop/add-edit-shop.component';
+import { ShopListComponent } from './shop/shop-list.component';
+import { AddEditShopCanDeactivateGuardService } from './shop/add-edit-can-deactivate-guard.service';
 
 import { ItemListComponent } from './item/item-list.component';
 

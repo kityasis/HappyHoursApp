@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource,MatDialog } from '@angular/material';
-import { DeleteDialogComponent } from '../delete-dialog.component';
+import { DeleteDialogComponent } from '../shop/delete-dialog.component';
 
 import { ItemService } from '../../core/item.service';
 import { Utils } from '../../core/utils';

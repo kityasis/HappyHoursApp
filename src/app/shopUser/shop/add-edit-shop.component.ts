@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject, ViewChild } from '@angular/core';
-import { Shop } from '../model/shop';
-import { ShopService } from '../core/shop.service';
-import { Utils } from '../core/utils';
+import { Shop } from '../../model/shop';
+import { ShopService } from '../../core/shop.service';
+import { Utils } from '../../core/utils';
 import {Router} from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { NgForm } from '@angular/forms';

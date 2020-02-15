@@ -4,9 +4,9 @@ import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import { DeleteDialogComponent } from './delete-dialog.component';
 
-import { ShopService } from '../core/shop.service';
-import { Utils } from '../core/utils';
-import { Shop } from '../model/shop';
+import { ShopService } from '../../core/shop.service';
+import { Utils } from '../../core/utils';
+import { Shop } from '../../model/shop';
 
 @Component({
   selector: 'app-shops',
