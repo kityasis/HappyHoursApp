@@ -8,6 +8,8 @@ import {
   MatSelectModule,
   MatTableModule,
   MatToolbarModule,
+  MatPaginatorModule,
+  MatSortModule
 } from '@angular/material';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -33,7 +35,9 @@ import { AddEditItemDialogComponent } from './item/add-edit-item-dialog.componen
     MatInputModule,
     MatSelectModule, 
     CoreModule,
-    ShopRoutingModule
+    ShopRoutingModule,
+    MatPaginatorModule,
+    MatSortModule
   ],
   exports: [],
   declarations: [
