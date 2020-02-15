@@ -19,6 +19,7 @@ import { ShopRoutingModule } from './shop-routing.module';
 import { AddEditShopCanDeactivateGuardService } from './add-edit-can-deactivate-guard.service';
 
 import { ItemListComponent } from './item/item-list.component';
+import { AddEditItemDialogComponent } from './item/add-edit-item-dialog.component';
 
 @NgModule({
   imports: [
@@ -39,11 +40,13 @@ import { ItemListComponent } from './item/item-list.component';
     ShopListComponent,
     AddEditShopComponent,
     DeleteDialogComponent,
+    AddEditItemDialogComponent,
     ItemListComponent   
   ],
   providers: [AddEditShopCanDeactivateGuardService],
   entryComponents: [
-    DeleteDialogComponent   
+    DeleteDialogComponent,
+    AddEditItemDialogComponent   
   ]
 })
 export class ShopModule {}

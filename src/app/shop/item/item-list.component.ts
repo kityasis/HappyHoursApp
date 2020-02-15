@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource,MatDialog } from '@angular/material';
-import { DeleteDialogComponent } from '../delete-dialog.component';
+import { AddEditItemDialogComponent } from './add-edit-item-dialog.component';
+import { DeleteItemDialogComponent } from './delete-item-dialog.component';
 
 import { ItemService } from '../../core/item.service';
 import { Utils } from '../../core/utils';
@@ -12,7 +13,7 @@ import { Item } from '../../model/item';
   styleUrls: ['item-list.component.scss']
 })
 export class ItemListComponent implements OnInit {
-  displayedColumns = ["name","type","email","contactNumber","shopImages","actions"];
+  displayedColumns = ["shopName","name","price"];
   error: string;
   dataSource = new MatTableDataSource();
   items: Item[];
@@ -29,9 +30,24 @@ export class ItemListComponent implements OnInit {
       this.dataSource.data = items;
     }, error => Utils.formatError(error));
   }
+  addEditItem(item: Item) {    
+    const dialogRef = this.dialog.open(AddEditItemDialogComponent, {
+      width: '348px',
+      data: { }
+    });
+    dialogRef.afterClosed().subscribe(result => {     
+      if (result !== undefined) {
+        this._itemService.addItem(item).subscribe(() => {          
+          this._itemService.getItems().subscribe(items => {            
+            this.dataSource.data = items;
+          }, error => this.error = Utils.formatError(error));
+        }, error => this.error = Utils.formatError(error));
+      }
+    });
+  }
 
   deleteShop(item: Item) {
-     const dialogRef = this.dialog.open(DeleteDialogComponent, {
+     const dialogRef = this.dialog.open(DeleteItemDialogComponent, {
        width: '348px',
        data: { entityName: 'shop', message: `Are you sure you want to delete Shop ${item.name}?` }
      });
