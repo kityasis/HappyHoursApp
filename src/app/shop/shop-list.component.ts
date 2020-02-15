@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild } from '@angular/core';
 import { MatTableDataSource,MatDialog } from '@angular/material';
+import {MatPaginator} from '@angular/material/paginator';
+import {MatSort} from '@angular/material/sort';
 import { DeleteDialogComponent } from './delete-dialog.component';
 
 import { ShopService } from '../core/shop.service';
@@ -17,7 +19,9 @@ export class ShopListComponent implements OnInit {
   dataSource = new MatTableDataSource();
   Shops: Shop[];
   shop : Shop;
-
+  searchKey:string;
+  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+  @ViewChild(MatSort, {static: true}) sort: MatSort;
   constructor(
     private _shopService: ShopService,
     public dialog: MatDialog
@@ -28,6 +32,8 @@ export class ShopListComponent implements OnInit {
       this.Shops = Shops;
       this.dataSource.data = Shops;
     }, error => Utils.formatError(error));
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
   }
 
   deleteShop(shop: Shop) {
@@ -43,5 +49,14 @@ export class ShopListComponent implements OnInit {
        }
      });
    }
+
+   onSearchClear(){
+    this.searchKey="";
+    this.applyFilter();
+  }
+ 
+  applyFilter() {
+    this.dataSource.filter = this.searchKey.trim().toLowerCase();;
+  }
 }
 

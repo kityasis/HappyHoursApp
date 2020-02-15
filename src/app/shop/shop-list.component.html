@@ -1,69 +1,82 @@
+<div class="serch-div">
+    <mat-form-field class="search-form-field" floatLable="never">
+        <input matInput [(ngModel)]="searchKey" placeholder="Search" autocomplete="off" (keyup)="applyFilter()">
+        <button title="Delete shop" mat-raised-button color="warn" class="list-action" (click)="deleteShop(shop)">
+            <i mat-button matSuffix mat-icon-button aria-label="Clear" *ngIf="searchKey"
+                (click)="onSearchClear()">close</i>
+        </button>
+    </mat-form-field>
+</div>
 <div style="color:red">{{error}}</div>
 <div class="table-container mat-elevation-z8">
-  <mat-table [dataSource]="dataSource">
-      <!-- User Column -->
-      <ng-container matColumnDef="name">
-          <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
-          <mat-cell *matCellDef="let shop">
-              <div class="user-name">
-                  <strong>{{shop.name}} </strong>
-              </div>
-          </mat-cell>
-      </ng-container>
+    <mat-table [dataSource]="dataSource" matSort>
+        <!-- User Column -->
+        <ng-container matColumnDef="name">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Name</mat-header-cell>
+            <mat-cell *matCellDef="let shop" [style.flex]="'flex'">
+                <div class="user-name">
+                    <strong>{{shop.name}} </strong>
+                </div>
+            </mat-cell>
+        </ng-container>
 
-      <ng-container matColumnDef="type">
-        <mat-header-cell *matHeaderCellDef>Type</mat-header-cell>
-        <mat-cell *matCellDef="let shop">
-            <div class="user-name">
-                <strong>{{shop.type?'Bar':'Resturant'}} </strong>
-            </div>
-        </mat-cell>
-    </ng-container>
-    <ng-container matColumnDef="email">
-      <mat-header-cell *matHeaderCellDef>E-Mail</mat-header-cell>
-      <mat-cell *matCellDef="let shop">
-          <div class="user-name">
-              <strong>{{shop.email}} </strong>
-          </div>
-      </mat-cell>
-    </ng-container>
-    <ng-container matColumnDef="contactNumber">
-    <mat-header-cell *matHeaderCellDef>Contact Number</mat-header-cell>
-    <mat-cell *matCellDef="let shop">
-        <div class="user-name">
-            <strong>{{shop.contactNumber}} </strong>
-        </div>
-    </mat-cell>
-  </ng-container>
-<ng-container matColumnDef="shopImages">
-  <mat-header-cell *matHeaderCellDef>Image</mat-header-cell>
-  <mat-cell *matCellDef="let shop">
-      <div class="user-name">
-          <strong>{{shop.shopImages}} </strong>
-      </div>
-  </mat-cell>
-</ng-container>
+        <ng-container matColumnDef="type">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Type</mat-header-cell>
+            <mat-cell *matCellDef="let shop" [style.flex]="'flex'">
+                <div class="user-name">
+                    <strong>{{shop.type?'Bar':'Resturant'}} </strong>
+                </div>
+            </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="email">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>E-Mail</mat-header-cell>
+            <mat-cell *matCellDef="let shop" [style.flex]="'flex'">
+                <div class="user-name">
+                    <strong>{{shop.email}} </strong>
+                </div>
+            </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="contactNumber">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Contact Number</mat-header-cell>
+            <mat-cell *matCellDef="let shop" [style.flex]="'flex'">
+                <div class="user-name">
+                    <strong>{{shop.contactNumber}} </strong>
+                </div>
+            </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="shopImages">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Image</mat-header-cell>
+            <mat-cell *matCellDef="let shop" [style.flex]="'flex'">
+                <div class="user-name">
+                    <strong>{{shop.shopImages}} </strong>
+                </div>
+            </mat-cell>
+        </ng-container>
 
-      <!-- Actions Column -->
-      <ng-container matColumnDef="actions">
-          <mat-header-cell *matHeaderCellDef>Actions</mat-header-cell>
-          <mat-cell *matCellDef="let shop"> 
-            <div class="action-button-wrapper">
-              <button title="Edit Shop" mat-raised-button color="primary" class="list-action" routerLink="/add-edit-shop/{{shop.id}}">
-                  <i class="material-icons">edit</i>
-              </button>
-              <button title="Delete shop" mat-raised-button color="warn" class="list-action" (click)="deleteShop(shop)">
-                  <i class="material-icons">delete</i>
-              </button>
-          </div>
-          </mat-cell>
-      </ng-container>
+        <!-- Actions Column -->
+        <ng-container matColumnDef="actions">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Actions</mat-header-cell>
+            <mat-cell *matCellDef="let shop">
+                <div class="action-button-wrapper">
+                    <button title="Edit Shop" mat-raised-button color="primary" class="list-action"
+                        routerLink="/add-edit-shop/{{shop.id}}">
+                        <i class="material-icons">edit</i>
+                    </button>
+                    <button title="Delete shop" mat-raised-button color="warn" class="list-action"
+                        (click)="deleteShop(shop)">
+                        <i class="material-icons">delete</i>
+                    </button>
+                </div>
+            </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
 
 
-      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-  </mat-table>
-  <button title="Add Shop" mat-raised-button class="add-button mat-fab" color="primary" routerLink="/add-edit-shop">
-      <i class="material-icons">add</i>
-  </button>
+    <button title="Add Shop" mat-raised-button class="add-button mat-fab" color="primary" routerLink="/add-edit-shop">
+        <i class="material-icons">add</i>
+    </button>
 </div>
