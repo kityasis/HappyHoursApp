@@ -3,5 +3,7 @@ export class Item {
     name : string;
     shopId : string;    
     price : number;
+    qty : number;
+    isHappyHour : boolean;
 }
     

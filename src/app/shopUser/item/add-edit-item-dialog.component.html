@@ -1,13 +1,22 @@
 <h1 mat-dialog-title>Add/Edit Item</h1>
 <div mat-dialog-content>  
-    <mat-form-field style="width:300px">
-        <mat-select [(ngModel)]="data.permission">
-            <mat-option *ngFor="let option of options" [value]="option.value">
-                {{ option.label }}
+    <mat-form-field class="example-full-width">
+        <mat-label>Select Shop</mat-label>
+        <mat-select [(ngModel)]="data.shopId" required>
+            <mat-option *ngFor="let shop of shopDLL" [value]="shop.id">
+                {{ shop.name }}
               </mat-option>
         </mat-select>
     </mat-form-field>
-  
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="Name" [(ngModel)]="data.name" required name="name">
+      </mat-form-field>  
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Qty" [(ngModel)]="data.qty" required name="qty">
+      </mat-form-field> 
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="price" [(ngModel)]="data.price" required name="price">
+      </mat-form-field> 
 </div>
 <div class="mat-body-1" style="color:#E91E63">{{error}}</div>
 <div mat-dialog-actions layout="row">

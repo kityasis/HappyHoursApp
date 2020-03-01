@@ -26,6 +26,9 @@ export class ShopService {
     getShop(shopId: number): Observable<Shop> {
         return this._httpClient.get<Shop>(Constants.apiRoot + 'Shops/' + shopId);
     }
+    getShopDDL(): Observable<Shop> {
+        return this._httpClient.get<any>(Constants.apiRoot + 'Shops/ShopDDL');
+    }
 
     getShopUsers(ShopId: number): Observable<UserProfile[]> {
         return this._httpClient.get<UserProfile[]>(Constants.apiRoot + 'Shops/' + ShopId + '/Users');
