@@ -14,7 +14,7 @@
           <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
           <mat-cell *matCellDef="let happyhour">
               <div class="user-name">
-                  <strong>{{happyhour.shopId}} </strong>
+                  <strong>{{happyhour.shop.name}} </strong>
               </div>
           </mat-cell>
       </ng-container>
@@ -47,7 +47,7 @@
   <mat-header-cell *matHeaderCellDef>Created Date</mat-header-cell>
   <mat-cell *matCellDef="let happyhour">
       <div class="user-name">
-          <strong>{{happyhour.HappyHoursDate}} </strong>
+          <strong>{{happyhour.happyHoursDate}} </strong>
       </div>
   </mat-cell>
 </ng-container>

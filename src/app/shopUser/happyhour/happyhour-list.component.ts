@@ -33,6 +33,7 @@ export class HappyHourListComponent implements OnInit {
     this._happyhourService.getAllHappyHours().subscribe(hphrs => {
       this.happyhours = hphrs;
       this.dataSource.data=hphrs;
+      console.log(hphrs);
     }, error => Utils.formatError(error));
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
