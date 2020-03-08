@@ -1,3 +1,5 @@
+import { Shop } from './shop';
+
 export class Item {
     id : number;
     name : string;
@@ -5,5 +7,6 @@ export class Item {
     price : number;
     qty : number;
     isHappyHour : boolean;
+    shop: Shop;
 }
     

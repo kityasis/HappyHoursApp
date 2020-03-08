@@ -17,6 +17,11 @@
       <mat-form-field class="example-full-width">
         <input matInput placeholder="price" [(ngModel)]="data.price" required name="price">
       </mat-form-field> 
+      <mat-form-field class="example-full-width">
+      <mat-checkbox class = "example-margin" [(ngModel)] = "data.isHappyHour"> 
+        <label>Is HappyHour </label> 
+      </mat-checkbox>
+    </mat-form-field> 
 </div>
 <div class="mat-body-1" style="color:#E91E63">{{error}}</div>
 <div mat-dialog-actions layout="row">

@@ -11,7 +11,8 @@ import {
   MatTableModule,
   MatToolbarModule,
   MatPaginatorModule,
-  MatSortModule
+  MatSortModule,
+  MatCheckboxModule
 } from '@angular/material';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -39,7 +40,8 @@ import { AddEditItemDialogComponent } from './item/add-edit-item-dialog.componen
     CoreModule,
     ShopRoutingModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    MatCheckboxModule
   ],
   exports: [],
   declarations: [

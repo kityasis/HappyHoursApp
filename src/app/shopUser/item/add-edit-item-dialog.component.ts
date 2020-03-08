@@ -14,6 +14,10 @@ export class AddEditItemDialogComponent implements OnInit {
     confirmationMessage: string;
     shopDLL : any;
     error : string;
+    checked = false;
+    indeterminate = false;
+    labelPosition = 'after';
+    disabled = false;
     constructor(public _dialogRef: MatDialogRef<AddEditItemDialogComponent>,
                 @Inject(MAT_DIALOG_DATA) 
                 public data: any,
@@ -27,11 +31,12 @@ export class AddEditItemDialogComponent implements OnInit {
             this.shopDLL = s;
         }, error => (this.error = Utils.formatError(error)));
      }
-     save(){
-         this._itemService.addItem(this.data).subscribe(s => {
-            this._dialogRef.close();
-        }, error => (this.error = Utils.formatError(error)));
-     }
+      save(){
+          //this._itemService.addItem(this.data).subscribe(s => {
+             
+             this._dialogRef.close(this.data);
+         //}, error => (this.error = Utils.formatError(error)));
+      }
     cancel() {
         this._dialogRef.close();
     }
