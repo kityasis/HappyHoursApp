@@ -13,7 +13,7 @@ import { Item } from '../../model/item';
   styleUrls: ['item-list.component.scss']
 })
 export class ItemListComponent implements OnInit {
-  displayedColumns = ["shopName","name","price"];
+  displayedColumns = ["shopName","name","qty","price","actions"];
   error: string;
   dataSource = new MatTableDataSource();
   items: Item[];
@@ -37,10 +37,15 @@ export class ItemListComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(result => {     
       if (result !== undefined) {
-        this._itemService.addItem(item).subscribe(() => {          
-          this._itemService.getItems().subscribe(items => {            
-            this.dataSource.data = items;
-          }, error => this.error = Utils.formatError(error));
+        const newItem = new Item();
+        newItem.name = result.name;
+        newItem.price=result.price;
+        newItem.qty=result.qty;
+        newItem.shopId=result.shopId;
+        newItem.isHappyHour=result.isHappyHour;
+        this._itemService.addItem(newItem).subscribe(item => {          
+         this.items.push(item);
+         this.dataSource.data=this.items;
         }, error => this.error = Utils.formatError(error));
       }
     });
