@@ -1,3 +1,4 @@
+import { HappyHoursService } from './happyhours.service';
 import { NgModule } from '@angular/core';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptorService } from './auth-interceptor.service';
@@ -20,6 +21,7 @@ import { ItemService } from './item.service';
         { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true },
         ShopService,
         ItemService, 
+        HappyHoursService
     ],
 })
 export class CoreModule { }

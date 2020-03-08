@@ -1,3 +1,5 @@
+import { HappyHourListComponent } from './happyhour/happyhour-list.component';
+import { AddEditHappyHoursDialogComponent } from './happyhour/add-edit-happyhours-dialog.component';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import {
@@ -45,12 +47,15 @@ import { AddEditItemDialogComponent } from './item/add-edit-item-dialog.componen
     AddEditShopComponent,
     DeleteDialogComponent,
     AddEditItemDialogComponent,
-    ItemListComponent   
+    ItemListComponent ,
+    HappyHourListComponent,
+    AddEditHappyHoursDialogComponent
   ],
   providers: [AddEditShopCanDeactivateGuardService],
   entryComponents: [
     DeleteDialogComponent,
-    AddEditItemDialogComponent   
+    AddEditItemDialogComponent ,
+    AddEditHappyHoursDialogComponent
   ]
 })
 export class ShopModule {}

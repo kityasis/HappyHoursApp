@@ -1,3 +1,5 @@
+import { AddEditHappyHoursDialogComponent } from './happyhour/add-edit-happyhours-dialog.component';
+import { HappyHourListComponent } from './happyhour/happyhour-list.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AddEditShopComponent } from './shop/add-edit-shop.component';
@@ -16,7 +18,9 @@ const routes: Routes = [
   },
   { path: 'items', component: ItemListComponent},    
   { path: 'add-edit-item/:itemId', component: ItemListComponent},
-  { path: 'add-edit-item', component: ItemListComponent}   
+  { path: 'add-edit-item', component: ItemListComponent}   ,
+  { path: 'add-edit-happyhours', component: AddEditHappyHoursDialogComponent},
+  { path: 'happyhours', component: HappyHourListComponent},
 ];
 
 @NgModule({
