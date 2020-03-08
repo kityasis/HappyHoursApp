@@ -22,11 +22,11 @@ export class HappyHoursService {
     addHappyHours(happyhour: HappyHours): Observable<HappyHours> {
         return this._httpClient.post<HappyHours>(Constants.apiRoot + 'HappyHours/AddHappyHours', happyhour);
     }
-    // updateItem(Item: Item) {
-    //     return this._httpClient.put(`${Constants.apiRoot}Items/${Item.id}`, Item);
-    // }
+    updateItem(happyhour: HappyHours) {
+        return this._httpClient.put(`${Constants.apiRoot}Items/${happyhour.id}`, happyhour);
+    }
 
-    deleteHappyHours(happyhour: HappyHours): Observable<object> {
-        return this._httpClient.delete(Constants.apiRoot + 'HappyHours/DeleteHappyHours/' + happyhour.id);
+    deleteHappyhour(happyhour: HappyHours): Observable<object> {
+        return this._httpClient.delete(Constants.apiRoot + 'HappyHours/' + happyhour.id);
     }   
 }
